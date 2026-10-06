@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+>
+
+<title>Nossa História — Kelly</title>
+
+<meta
+    name="description"
+    content="Um projeto feito com tempo, memória e carinho para guardar uma história importante."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+>
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<style>
+
+
+
+.music-player {
+    max-width: 850px;
+    margin: 40px auto 0;
+    padding: 28px;
+    border-radius: 24px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(15px);
+}
+
+.player-info {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.player-label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 3px;
+    opacity: .55;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+#playerTitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#playerCounter {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: .5;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.player-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.06);
+    color: inherit;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .2s;
+}
+
+.player-button:hover {
+    transform: scale(1.08);
+    background: rgba(255,255,255,.13);
+}
+
+.player-button.main {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+}
+
+.progress-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.progress-area span {
+    font-size: 11px;
+    opacity: .55;
+    min-width: 38px;
+}
+
+#progress {
+    width: 100%;
+    cursor: pointer;
+}
+
+.volume-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.volume-area span {
+    font-size: 18px;
+}
+
+#volume {
+    width: 130px;
+    cursor: pointer;
+}
+
+.playlist-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: .55;
+    margin-bottom: 12px;
+}
+
+#playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 15px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: rgba(255,255,255,.035);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.playlist-item:hover {
+    background: rgba(255,255,255,.08);
+}
+
+.playlist-item.active {
+    border-color: rgba(255,255,255,.22);
+    background: rgba(255,255,255,.1);
+}
+
+.playlist-number {
+    width: 30px;
+    opacity: .45;
+    font-size: 12px;
+}
+
+.playlist-name {
+    flex: 1;
+}
+
+.playlist-playing {
+    font-size: 12px;
+    opacity: .6;
+}
+
+.music-note {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 12px;
+    opacity: .45;
+}
+
+.music-note code {
+    font-size: 11px;
+}
+
+
+/* Barra de áudio */
+
+input[type="range"] {
+    accent-color: currentColor;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+<div id="loader">
+
+    <div class="loader-ring"></div>
+
+    <p>preparando algumas memórias...</p>
+
+</div>
+
+
+<div id="stars"></div>
+
+
+<nav class="nav">
+
+    <div class="brand">
+        B<span>♥</span>K
+    </div>
+
+    <div class="navlinks">
+
+        <a href="#inicio">Início</a>
+
+        <a href="#linha">Nossa história</a>
+
+        <a href="#memorias">Memórias</a>
+
+        <a href="#mundo">Nosso mundo</a>
+
+        <a href="#final">Final</a>
+
+    </div>
+
+    <button
+        id="musicBtn"
+        class="iconbtn"
+        aria-label="Música"
+    >
+        ♫
+    </button>
+
+</nav>
+
+
+<main>
+
+
+<section id="inicio" class="hero section">
+
+    <div class="hero-glow"></div>
+
+    <div class="eyebrow">
+        27 · 09 · 2024
+    </div>
+
+    <h1>
+        Kelly<span>...</span>
+    </h1>
+
+    <p class="hero-sub">
+
+        Eu poderia escrever mil coisas sobre você.<br>
+
+        Mas preferi construir algo para guardar aquilo que eu nunca consegui explicar completamente em palavras.
+
+    </p>
+
+    <button
+        class="primary"
+        id="enterBtn"
+    >
+        Entrar na nossa história <b>→</b>
+    </button>
+
+    <div class="scrollhint">
+        deslize para continuar <span>↓</span>
+    </div>
+
+</section>
+
+
+<section class="manifesto section">
+
+    <div class="quote">“</div>
+
+    <h2>
+        Eu fiz este projeto porque algumas histórias merecem mais do que uma mensagem.
+    </h2>
+
+    <p>
+        Foram dias pensando, noites mexendo em código e madrugadas tentando deixar cada detalhe com a nossa cara.
+        Não para criar algo perfeito, mas para criar algo <em>verdadeiro</em>.
+    </p>
+
+</section>
+
+
+<section
+    id="linha"
+    class="section timeline-section"
+>
+
+    <div class="sectionhead">
+
+        <span>01</span>
+
+        <h2>
+            Uma linha do tempo
+        </h2>
+
+        <p>
+            Não são apenas datas. São momentos que ganharam significado.
+        </p>
+
+    </div>
+
+    <div
+        id="timeline"
+        class="timeline"
+    ></div>
+
+</section>
+
+
+<section
+    id="memorias"
+    class="section memories"
+>
+
+    <div class="sectionhead">
+
+        <span>02</span>
+
+        <h2>
+            Coisas que eu lembro
+        </h2>
+
+        <p>
+            Pequenos detalhes são justamente os que mais ficam.
+        </p>
+
+    </div>
+
+    <div
+        id="memoryGrid"
+        class="memory-grid"
+    ></div>
+
+</section>
+
+
+<section class="section gallery">
+
+    <div class="sectionhead">
+
+        <span>03</span>
+
+        <h2>
+            Alguns registros
+        </h2>
+
+        <p>
+            Porque uma memória também pode morar em uma imagem.
+        </p>
+
+    </div>
+
+   <div class="photo-wall" id="photoGallery"></div>
+
+</section>
+
+
+<section
+    id="mundo"
+    class="section world"
+>
+
+    <div class="sectionhead">
+
+        <span>04</span>
+
+        <h2>
+            O nosso pequeno universo
+        </h2>
+
+        <p>
+            As coisas que só fazem sentido porque fomos nós dois.
+        </p>
+
+    </div>
+
+
+    <div class="world-grid">
+
+        <article>
+
+            <div class="worldicon">
+                🐉
+            </div>
+
+            <h3>
+                Dragon Ball
+            </h3>
+
+            <p>
+                A gente discutia qual saga era melhor, preferia as versões em espanhol e combinamos de assistir todas as sagas juntos na nossa casinha meu amor
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <div class="worldicon">
+                🦸
+            </div>
+
+            <h3>
+                Marvel
+            </h3>
+
+            <p>
+                Loki, Iron Man, Spider-Man, Wanda e Peter Quill. Porque a marvel fez eles sofrerem tanto não tem motivo eu tenho muita dó do Peter quill
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <div class="worldicon">
+                🧸
+            </div>
+
+            <h3>
+                Toy Story
+            </h3>
+
+            <p>
+            
+        Nós dois concordávamos que Andy não tinha que ter dado os brinquedos para a Bonnie. ela usou por 1 filme o Woody e depois deixou ele abandonou ele e o andy queria ter ficado com o woody e deu para ela CUIDAR passou o proximo filme ela deixou
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <div class="worldicon">
+                🍍
+            </div>
+
+            <h3>
+                Bob Esponja
+            </h3>
+
+            <p>
+                O Bob esponja não da apra prever o que ele vai fazer KAKKKSAKKDKAKDAK ele se parte em 2 dunada se multiplica o patrick ainda mais KSKAKKSDJFJAJFAJAKSK ele tem um irmao gemeo que mora na testa dele QUEEE KAJSAHAJLFAKJAKS
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="section nicknames">
+
+    <div class="sectionhead">
+
+        <span>05</span>
+
+        <h2>
+            Os nomes que ficaram
+        </h2>
+
+        <p>
+            Algumas palavras têm outro peso quando vêm da pessoa certa.
+        </p>
+
+    </div>
+
+
+    <div class="nickname-columns">
+
+        <div>
+
+            <small>
+                Você me chamava de
+            </small>
+
+            <div
+                id="nickKelly"
+                class="chips"
+            ></div>
+
+        </div>
+
+
+        <div>
+
+            <small>
+                Eu te chamava de
+            </small>
+
+            <div
+                id="nickFranz"
+                class="chips"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section music">
+
+    <div class="sectionhead">
+
+        <span>06</span>
+
+        <h2>
+            Nossa trilha sonora
+        </h2>
+
+        <p>
+            As músicas que fazem parte das lembranças.
+        </p>
+
+    </div>
+
+
+    <div class="music-player">
+
+        <div class="player-info">
+
+            <span class="player-label">
+                tocando agora
+            </span>
+
+            <h3 id="playerTitle">
+                Nenhuma música selecionada
+            </h3>
+
+            <span id="playerCounter">
+                0 / 0
+            </span>
+
+        </div>
+
+
+        <div class="player-controls">
+
+            <button
+                id="prevBtn"
+                class="player-button"
+                title="Anterior"
+            >
+                ⏮
+            </button>
+
+
+            <button
+                id="playBtn"
+                class="player-button main"
+                title="Reproduzir"
+            >
+                ▶
+            </button>
+
+
+            <button
+                id="nextBtn"
+                class="player-button"
+                title="Próxima"
+            >
+                ⏭
+            </button>
+
+        </div>
+
+
+        <div class="progress-area">
+
+            <span id="currentTime">
+                0:00
+            </span>
+
+            <input
+                id="progress"
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+            >
+
+            <span id="duration">
+                0:00
+            </span>
+
+        </div>
+
+
+        <div class="volume-area">
+
+            <span>
+                🔊
+            </span>
+
+            <input
+                id="volume"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.8"
+            >
+
+        </div>
+
+
+        <div class="playlist-title">
+            Todas as músicas
+        </div>
+
+
+        <div id="playlist">
+
+            <div style="opacity:.5;padding:15px;">
+                Procurando músicas...
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="music-note">
+
+        As músicas são carregadas automaticamente da pasta
+        <code>frontend/assets/audio</code>.
+
+    </div>
+
+</section>
+
+
+<section class="section letter">
+
+    <div class="letter-card">
+
+        <span class="seal">
+            B ♥ K
+        </span>
+
+        <h2>
+            O que meu coração nunca deixou de sentir meu amor💖 💗 💓 💕 💞
+        </h2>
+
+        <p>
+           Eu ainda quero nós dois.
+Kelly, no meio de todas essas lembranças existe uma coisa que continua muito clara dentro de mim: eu te amo. Não estou fazendo este projeto porque esqueci o que vivemos. Estou fazendo justamente porque tudo isso foi verdadeiro e importante demais para mim.
+Eu não queria que a nossa história terminasse aqui. Eu queria continuar sendo o seu namorado, continuar descobrindo coisas sobre você, acompanhando seus dias, fazendo você rir, ouvindo suas histórias e criando novas lembranças ao seu lado.
+        </p>
+
+        <p>
+           E quando penso muito mais longe, meu coração ainda imagina você. Eu gostaria que um namoro que começou tão jovem pudesse crescer junto com a gente. Que um dia pudéssemos olhar para 27/09/2024 e pensar: “foi ali que começou uma história que atravessou tantas fases das nossas vidas”.
+Eu gostaria de crescer, estudar, trabalhar, conquistar minhas coisas e, se a vida e nós dois escolhermos o mesmo caminho, um dia poder te chamar não apenas de minha namorada, mas de minha esposa. Poder construir uma casa, viajar, assistir nossas coisas favoritas juntos, discutir novamente qual saga de Dragon Ball é melhor, colocar músicas para tocar e continuar rindo das nossas próprias besteiras.
+Eu sei que amar alguém não significa decidir o futuro por ela. Você tem seus sentimentos, suas escolhas e seu próprio caminho. Por isso, tudo isso é o que eu desejo, não algo que espero que você seja obrigada a sentir também.
+        </p>
+
+        <p>
+            Mas se você algum dia me perguntar o que existe no meu coração, a resposta continua sendo simples: eu ainda gostaria de viver essa história com você.
+Eu quero que existam novos capítulos depois dessas fotos. Novas músicas para colocar nesta página. Novos lugares para acrescentar à nossa linha do tempo. Novas piadas que só nós vamos entender.
+Porque, para mim, este site não foi feito para representar um fim.
+Foi feito para guardar tudo que vivemos e tudo que meu coração ainda gostaria que pudéssemos viver.
+Eu te amomuito meu amor, mi amor, mi niña hermosa, mi bebe, mi amor de mi vida eu quero muito te abraçar minha princesa linda 💖 💗 💓 💕 💞
+        </p>
+
+        <p class="signature">
+            — Braian (Melhor tu niño que te ama con todo su corazon te amo mi amor💖 💗 💓 💕 💞)
+        </p>
+
+    </div>
+
+</section>
+
+
+<section
+    id="final"
+    class="final section"
+>
+
+    <div class="final-orbit">
+        <span>♥</span>
+    </div>
+
+    <div class="eyebrow">
+        fim? talvez apenas uma página.
+    </div>
+
+    <h2>
+        Algumas histórias não cabem em um site.
+    </h2>
+
+    <p>
+        Porque elas continuam existindo nas lembranças de quem viveu.
+    </p>
+
+    <div class="finalline"></div>
+
+    <small>
+        feito com código, memória, carinho e muitas horas acordado.
+    </small>
+
+</section>
+
+
+</main>
+
+
+<div id="lightbox" class="lightbox">
+    <button id="closeLight">×</button>
+
+    <button id="prevPhoto" class="gallery-arrow">❮</button>
+
+    <img id="lightImg" alt="Nossa memória">
+
+    <button id="nextPhoto" class="gallery-arrow">❯</button>
+
+    <span id="photoCounter"></span>
+</div>
+
+
+<audio
+    id="music"
+    preload="metadata"
+></audio>
+
+
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>
